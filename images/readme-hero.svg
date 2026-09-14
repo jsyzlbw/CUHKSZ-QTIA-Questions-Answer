@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">QTIA — Problem Notes</title>
+  <desc id="description">Proofs, patterns, and the next question. Independent solution notes from CUHK-Shenzhen. A circular diagram with nine equally spaced points accompanies the title.</desc>
+  <style>
+    .serif { font-family: "Baskerville", "Palatino Linotype", "Book Antiqua", Georgia, serif; }
+    .mono { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+    .orbit-marker { transform-origin: 965px 185px; animation: orbit 48s linear infinite; }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .orbit-marker { animation: none; } }
+  </style>
+
+  <rect width="1200" height="380" fill="#101E2A"/>
+  <path d="M58 56H89" stroke="#ADE4CF" stroke-width="2"/>
+  <text x="104" y="60" class="mono" font-size="12" letter-spacing="3.1" fill="#ADE4CF">PROBLEM NOTES</text>
+
+  <text x="54" y="220" class="serif" font-size="144" letter-spacing="-5" fill="#F4F0E7">QTIA</text>
+  <text x="60" y="271" class="serif" font-size="27" fill="#DEDCD5">Proofs, patterns, and the next question.</text>
+  <text x="60" y="329" class="mono" font-size="10" letter-spacing="1.3" fill="#9FAFBA">CUHK-SHENZHEN / INDEPENDENT SOLUTION NOTES</text>
+
+  <path d="M746 58V322" stroke="#35434D" stroke-width="1"/>
+
+  <g aria-hidden="true">
+    <circle cx="965" cy="185" r="136" stroke="#36444E" stroke-width="0.8" stroke-dasharray="1 8"/>
+    <circle cx="965" cy="185" r="112" stroke="#71858F" stroke-width="1"/>
+    <path d="M965 73A112 112 0 0 1 1075.298 165.551" stroke="#ADE4CF" stroke-width="2" stroke-linecap="round"/>
+
+    <path d="M965 185V73M965 185L1075.298 165.551" stroke="#40535E" stroke-width="0.8"/>
+    <path d="M965 158A27 27 0 0 1 991.590 180.312" stroke="#70838B" stroke-width="0.8"/>
+    <path d="M959 185H971M965 179V191" stroke="#A6B9C0" stroke-width="1"/>
+
+    <g fill="#EAEAE1" stroke="#101E2A" stroke-width="3">
+      <circle cx="965" cy="73" r="4.5"/>
+      <circle cx="1036.992" cy="99.203" r="4.5"/>
+      <circle cx="1075.298" cy="165.551" r="4.5"/>
+      <circle cx="1061.995" cy="241" r="4.5"/>
+      <circle cx="1003.306" cy="290.246" r="4.5"/>
+      <circle cx="926.694" cy="290.246" r="4.5"/>
+      <circle cx="868.005" cy="241" r="4.5"/>
+      <circle cx="854.702" cy="165.551" r="4.5"/>
+      <circle cx="893.008" cy="99.203" r="4.5"/>
+    </g>
+
+    <g class="orbit-marker">
+      <path d="M942.773 58.945A128 128 0 0 1 965 57" stroke="#ADE4CF" stroke-width="1" stroke-linecap="round"/>
+      <path d="M961 53L968 57L961 61" stroke="#ADE4CF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <text x="985" y="140" class="serif" font-size="17" font-style="italic" fill="#ADC2C4">θ</text>
+    <text x="965" y="231" class="mono" font-size="10" text-anchor="middle" letter-spacing="1.6" fill="#9DAFB8">n = 9</text>
+    <text x="965" y="348" class="mono" font-size="9" text-anchor="middle" letter-spacing="2.1" fill="#9DAFB8">ORDER / MOTION / INVARIANCE</text>
+  </g>
+</svg>
