@@ -116,11 +116,25 @@ Take $1$, $2$, and $3$ coins from the first, second, and third bags, respectivel
 
 All six totals are distinct, so one weighing identifies both the bag and whether its coins are lighter or heavier. With no weighing, these possibilities cannot be distinguished; therefore, one weighing is optimal.
 
+### Generalization to $n$ bags
+
+Suppose exactly one of $n$ bags contains coins weighing $9$ or $11$ grams each, while all other coins weigh $10$ grams each. Take $i$ coins from bag $i$, for $i=1,\ldots,n$.
+
+If all coins had the normal weight, the total would be
+
+$$
+B=10\sum_{i=1}^{n}i=5n(n+1).
+$$
+
+Let $W$ be the measured weight and define $d=W-B$. If bag $j$ is unusual, then $d=+j$ when its coins are heavier and $d=-j$ when they are lighter. Thus $|d|$ identifies the bag, and the sign identifies whether it is lighter or heavier. **One weighing is optimal for every $n\ge1$.**
+
 ## 2. Coins in one bag are 1 gram lighter or heavier than those in the other two bags. The normal weight is unknown. Identify the unusual bag and determine whether its coins are lighter or heavier.
 
 **Minimum: one weighing.**
 
-Take $1$, $2$, and $4$ coins from the first, second, and third bags, respectively. Let the normal weight be $m$ grams per coin. The total weight is
+The key is to choose sample sizes so that the unknown normal weight disappears when we take a remainder, while each unusual bag still leaves a distinct result.
+
+Take $1$, $2$, and $4$ coins from the first, second, and third bags, respectively. Let the normal weight be the positive integer $m$. Since we take seven coins in total, the measured weight is
 
 $$
 W=\begin{cases}
@@ -130,21 +144,66 @@ W=\begin{cases}
 \end{cases}
 $$
 
-Reducing $W$ modulo $7$ eliminates the unknown normal weight $m$. The possible remainders are:
+Reducing $W$ modulo $7$ eliminates $7m$. Write the remainder $r=W\bmod7$ in **exactly three binary digits**, including leading zeros:
 
-| Unusual bag | $W\bmod7$ if lighter | $W\bmod7$ if heavier |
+| Unusual bag | Remainder if lighter | Remainder if heavier |
 | --- | --- | --- |
-| First | 6 | 1 |
-| Second | 5 | 2 |
-| Third | 3 | 4 |
+| First: take 1 coin | $6=$ `110` | $1=$ `001` |
+| Second: take 2 coins | $5=$ `101` | $2=$ `010` |
+| Third: take 4 coins | $3=$ `011` | $4=$ `100` |
 
-All six remainders are distinct, so they identify both the unusual bag and whether its coins are lighter or heavier. Zero weighings cannot distinguish the possibilities, so one weighing is optimal.
+Each bag corresponds to one binary position, counted from right to left. If bag $i$ is heavier, the remainder is $2^{i-1}$, so only position $i$ is `1`. If it is lighter, the remainder is $7-2^{i-1}$: subtracting from $7=(111)_2$ changes only position $i$ to `0`.
+
+Thus a single `1` identifies a heavier bag, and a single `0` identifies a lighter bag. All six patterns are distinct. Since zero weighings cannot distinguish the possibilities, one weighing is optimal.
+
+This also explains why the previous sample sizes $1,2,3$ do not work here. Their total is $6$, and $+3\equiv-3\pmod6$, so the two cases for the third bag give the same remainder. Indeed, a heavier third bag with normal weight $m$ and a lighter third bag with normal weight $m+1$ both give $W=6m+3$.
+
+### Generalization to $n\ge3$ bags
+
+Suppose exactly one bag differs from the common, unknown normal weight by $1$ gram per coin. Assign one binary position to each bag: take $2^{i-1}$ coins from bag $i$, for $i=1,\ldots,n$. The total number of coins is
+
+$$
+N=\sum_{i=1}^{n}2^{i-1}=2^n-1
+=\bigl(\underbrace{11\cdots11}_{n\text{ digits}}\bigr)_2.
+$$
+
+If bag $j$ is unusual, the single weighing gives $W=Nm\pm2^{j-1}$. Compute $r=W\bmod N$ and write it in exactly $n$ binary digits:
+
+$$
+r=\begin{cases}
+2^{j-1}, & \text{if bag }j\text{ is heavier},\\
+N-2^{j-1}, & \text{if bag }j\text{ is lighter}.
+\end{cases}
+$$
+
+- **Exactly one `1`:** its position identifies the heavier bag.
+- **Exactly one `0`:** its position identifies the lighter bag.
+
+Positions are counted from the right, starting at $1$. Since $N$ has a `1` in every position, subtracting $2^{j-1}$ changes just the $j$th digit from `1` to `0`, with no borrowing. For $n\ge3$, a heavier case has one `1`, whereas a lighter case has $n-1\ge2$ ones. These two types cannot coincide, and the distinguished position uniquely identifies the bag. **One weighing therefore remains optimal for every $n\ge3$.**
+
+**Example: five bags.** Take $1,2,4,8,16$ coins, so $N=31$. If the measured weight is $W=306$, then
+
+$$
+r=306\bmod31=27=(11011)_2.
+$$
+
+The only `0` is in the third position from the right, so bag $3$ is lighter. Its four sampled coins account for a deficit of four grams, giving the normal weight
+
+$$
+m=\frac{306+4}{31}=10.
+$$
+
+We decode the binary digits of the **remainder**, not those of the total weight. Also, the quotient $\lfloor W/N\rfloor$ need not equal $m$: in a lighter case it equals $m-1$.
+
+**Why require $n\ge3$?** With two bags, the unknown normal weight makes the problem intrinsically ambiguous. Even if we knew the weights were $10$ and $11$, we could not distinguish “bag 1 is lighter, with normal weight 11” from “bag 2 is heavier, with normal weight 10.” No number of weighings can resolve that ambiguity without extra information. With one bag, there is likewise no normal reference from another bag to determine whether its coins are lighter or heavier.
 
 ## 3. Determine the weight of a coin from each bag.
 
 **Minimum: two weighings.**
 
 Let $a,b,c$ be the positive integer weights of a coin from the first, second, and third bags, respectively.
+
+The idea is to encode weights using place values. If we can arrange a measurement of the form $W=a+Sb$ with $0\le a<S$, division by $S$ recovers $b$ as the quotient and $a$ as the remainder. The first weighing provides a suitable base $S$.
 
 **First weighing.** Take one coin from each bag and record
 
@@ -170,6 +229,8 @@ $$
 
 Thus two weighings determine all three weights. The ability to choose the second sample size after seeing the first result is essential to this construction.
 
+For example, if $S=30$ and $W=338$, then $338=30\times11+8$. Hence $a=8$, $b=11$, and $c=30-8-11=11$.
+
 **Why one weighing cannot suffice.** Any one-weighing strategy must choose fixed nonnegative integers $p,q,r$ and observe only
 
 $$
@@ -193,3 +254,56 @@ W=pq+p+q+r.
 $$
 
 One weighing therefore cannot always distinguish the possible weights. Since two weighings suffice, the minimum is exactly two.
+
+### Generalization to $n$ bags
+
+For any fixed $n\ge2$, let the positive integer weights be $a_1,\ldots,a_n$. **Two weighings still suffice**, because we can use the first result as a base and encode several weights as its digits.
+
+First, weigh one coin from every bag to obtain
+
+$$
+S=\sum_{i=1}^{n}a_i.
+$$
+
+Positivity gives $1\le a_i<S$ for every $i$, so each weight is a valid base-$S$ digit.
+
+Next, take $S^{i-1}$ coins from bag $i$ for $i=1,\ldots,n-1$, and none from bag $n$. In other words, the sample sizes are $1,S,S^2,\ldots,S^{n-2},0$. This gives
+
+$$
+W=\sum_{i=1}^{n-1}a_iS^{i-1}.
+$$
+
+The base-$S$ digits of $W$, read from right to left, are exactly $a_1,\ldots,a_{n-1}$. There are no carries because every weight is less than $S$. Recover them by repeated division and remainders, or directly using
+
+$$
+\boxed{
+a_i=\left\lfloor\frac{W}{S^{i-1}}\right\rfloor\bmod S
+\quad(1\le i<n),\qquad
+a_n=S-\sum_{i=1}^{n-1}a_i
+}.
+$$
+
+All sample sizes are finite. They may be large, but the problem places no limit on sample size or scale capacity; the quantity being minimized is the number of weighings.
+
+To prove optimality, suppose a single weighing uses fixed counts $p_1,\ldots,p_n$. A zero count leaves the corresponding weight undetermined. If all counts are positive, the distinct weight assignments
+
+$$
+(p_2+1,1,1,\ldots,1)
+\quad\text{and}\quad
+(1,p_1+1,1,\ldots,1)
+$$
+
+both produce the total $p_1p_2+\sum_{i=1}^{n}p_i$. Thus one weighing cannot always determine the weights when $n\ge2$.
+
+For $n=2$, the construction simply weighs both coins together first and one coin from bag 1 second. For $n=1$, weighing one coin once is sufficient and necessary. Therefore,
+
+$$
+\boxed{
+\text{Minimum number of weighings}=\begin{cases}
+1, & n=1,\\
+2, & n\ge2.
+\end{cases}
+}
+$$
+
+The common principle is to make the measurement uniquely decodable: the first question uses the sign and size of a deviation, the second uses binary patterns after taking a remainder, and the third uses digits in a base chosen from the first measurement.
