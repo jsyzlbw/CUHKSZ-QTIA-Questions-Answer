@@ -14,7 +14,7 @@
   <text x="104" y="65" class="mono" font-size="24" letter-spacing="2" fill="#ADE4CF">PROBLEM NOTES</text>
 
   <text x="54" y="226" class="serif" font-size="164" letter-spacing="-5" fill="#F4F0E7">QTIA</text>
-  <text x="60" y="282" class="serif" font-size="34" fill="#F4F0E7">Proofs, patterns, and the next question.</text>
+  <text x="60" y="296" class="serif" font-size="34" fill="#F4F0E7">Proofs, patterns, and the next question.</text>
   <text x="60" y="344" class="mono" font-size="22" letter-spacing="0.5" fill="#BAC9D2">CUHK-SHENZHEN · INDEPENDENT NOTES</text>
 
   <path d="M746 58V322" stroke="#35434D" stroke-width="1"/>
