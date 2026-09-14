@@ -11,11 +11,11 @@
 
   <rect width="1200" height="380" fill="#101E2A"/>
   <path d="M58 56H89" stroke="#ADE4CF" stroke-width="2"/>
-  <text x="104" y="60" class="mono" font-size="12" letter-spacing="3.1" fill="#ADE4CF">PROBLEM NOTES</text>
+  <text x="104" y="65" class="mono" font-size="24" letter-spacing="2" fill="#ADE4CF">PROBLEM NOTES</text>
 
-  <text x="54" y="220" class="serif" font-size="144" letter-spacing="-5" fill="#F4F0E7">QTIA</text>
-  <text x="60" y="271" class="serif" font-size="27" fill="#DEDCD5">Proofs, patterns, and the next question.</text>
-  <text x="60" y="329" class="mono" font-size="10" letter-spacing="1.3" fill="#9FAFBA">CUHK-SHENZHEN / INDEPENDENT SOLUTION NOTES</text>
+  <text x="54" y="226" class="serif" font-size="164" letter-spacing="-5" fill="#F4F0E7">QTIA</text>
+  <text x="60" y="282" class="serif" font-size="34" fill="#F4F0E7">Proofs, patterns, and the next question.</text>
+  <text x="60" y="344" class="mono" font-size="22" letter-spacing="0.5" fill="#BAC9D2">CUHK-SHENZHEN · INDEPENDENT NOTES</text>
 
   <path d="M746 58V322" stroke="#35434D" stroke-width="1"/>
 
@@ -45,8 +45,8 @@
       <path d="M961 53L968 57L961 61" stroke="#ADE4CF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
 
-    <text x="985" y="140" class="serif" font-size="17" font-style="italic" fill="#ADC2C4">θ</text>
-    <text x="965" y="231" class="mono" font-size="10" text-anchor="middle" letter-spacing="1.6" fill="#9DAFB8">n = 9</text>
-    <text x="965" y="348" class="mono" font-size="9" text-anchor="middle" letter-spacing="2.1" fill="#9DAFB8">ORDER / MOTION / INVARIANCE</text>
+    <text x="985" y="140" class="serif" font-size="26" font-style="italic" fill="#BAC9D2">θ</text>
+    <text x="965" y="238" class="mono" font-size="24" text-anchor="middle" letter-spacing="1" fill="#BAC9D2">n = 9</text>
+    <text x="965" y="348" class="mono" font-size="22" text-anchor="middle" letter-spacing="1" fill="#BAC9D2">ORDER IN MOTION</text>
   </g>
 </svg>

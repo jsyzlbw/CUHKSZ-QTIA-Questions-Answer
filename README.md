@@ -10,7 +10,7 @@
   <a href="https://github.com/jsyzlbw/CUHKSZ-QTIA-Questions-Answer/issues">Discuss an idea</a>
 </p>
 
-<p align="center"><sub>01 WEEK &nbsp; · &nbsp; 03 TOPICS &nbsp; · &nbsp; 08 QUESTIONS</sub></p>
+<p align="center">01 WEEK &nbsp; · &nbsp; 03 TOPICS &nbsp; · &nbsp; 08 QUESTIONS</p>
 
 <br>
 
@@ -44,4 +44,4 @@ Personal solutions to the QTIA weekly problem sets. Each note develops the key o
 
 ---
 
-<sub>Problems: <a href="https://mp.weixin.qq.com/s/dyWoUoFFrEh4KkIvRbHslw">QTIA · WeChat source</a>. Solutions and extensions are personal notes. Corrections and alternative proofs are welcome via <a href="https://github.com/jsyzlbw/CUHKSZ-QTIA-Questions-Answer/issues">Issues</a>.</sub>
+Problems: [QTIA · WeChat source](https://mp.weixin.qq.com/s/dyWoUoFFrEh4KkIvRbHslw). Solutions and extensions are personal notes. Corrections and alternative proofs are welcome via [Issues](https://github.com/jsyzlbw/CUHKSZ-QTIA-Questions-Answer/issues).
