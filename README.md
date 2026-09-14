@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/readme-hero.svg?v=2" alt="QTIA — Problem Notes. Proofs, patterns, and the next question." width="100%">
+  <img src="images/readme-hero-v2.svg" alt="QTIA — Problem Notes. Proofs, patterns, and the next question." width="100%">
 </p>
 
 <p align="center">
