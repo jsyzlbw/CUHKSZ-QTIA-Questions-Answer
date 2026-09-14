@@ -22,7 +22,7 @@ $$
 Z(n)=\sum_{k=1}^{\infty}\left\lfloor\frac{n}{5^k}\right\rfloor.
 $$
 
-The term for $5^k$ counts the integers that contribute a $k$th factor of $5$. All terms with $5^k>n$ are zero, so only finitely many terms need to be added.
+The term for $5^k$ counts the integers containing at least $k$ factors of $5$. All terms with $5^k>n$ are zero, so only finitely many terms need to be added.
 
 We can compute this sum by repeatedly dividing by $5$:
 
@@ -179,7 +179,7 @@ $$
 - **Exactly one `1`:** its position identifies the heavier bag.
 - **Exactly one `0`:** its position identifies the lighter bag.
 
-Positions are counted from the right, starting at $1$. Since $N$ has a `1` in every position, subtracting $2^{j-1}$ changes just the $j$th digit from `1` to `0`, with no borrowing. For $n\ge3$, a heavier case has one `1`, whereas a lighter case has $n-1\ge2$ ones. These two types cannot coincide, and the distinguished position uniquely identifies the bag. **One weighing therefore remains optimal for every $n\ge3$.**
+Positions are counted from the right, starting at $1$. Since $N$ has a `1` in every position, subtracting $2^{j-1}$ changes just the digit in position $j$ from `1` to `0`, with no borrowing. For $n\ge3$, a heavier case has one `1`, whereas a lighter case has $n-1\ge2$ ones. These two types cannot coincide, and the distinguished position uniquely identifies the bag. **One weighing therefore remains optimal for every $n\ge3$.**
 
 **Example: five bags.** Take $1,2,4,8,16$ coins, so $N=31$. If the measured weight is $W=306$, then
 
@@ -265,7 +265,7 @@ $$
 S=\sum_{i=1}^{n}a_i.
 $$
 
-Positivity gives $1\le a_i<S$ for every $i$, so each weight is a valid base-$S$ digit.
+Positivity gives $1\le a_i<S$ for every $i$, so each weight is a valid digit in base $S$.
 
 Next, take $S^{i-1}$ coins from bag $i$ for $i=1,\ldots,n-1$, and none from bag $n$. In other words, the sample sizes are $1,S,S^2,\ldots,S^{n-2},0$. This gives
 
@@ -273,12 +273,12 @@ $$
 W=\sum_{i=1}^{n-1}a_iS^{i-1}.
 $$
 
-The base-$S$ digits of $W$, read from right to left, are exactly $a_1,\ldots,a_{n-1}$. There are no carries because every weight is less than $S$. Recover them by repeated division and remainders, or directly using
+The digits of $W$ in base $S$, read from right to left, are exactly $a_1,\ldots,a_{n-1}$. There are no carries because every weight is less than $S$. Recover them by repeated division and remainders, or directly using
 
 $$
 \boxed{
 a_i=\left\lfloor\frac{W}{S^{i-1}}\right\rfloor\bmod S
-\quad(1\le i<n),\qquad
+\quad(1\le i\lt n),\qquad
 a_n=S-\sum_{i=1}^{n-1}a_i
 }.
 $$
